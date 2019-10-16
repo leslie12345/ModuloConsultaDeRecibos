@@ -792,14 +792,16 @@ class BuscarNuevo extends React.Component {
     }
 
     onSubmitAsignar = (e) => {
+        
         if (this.Validar(this.state.dni, this.state.codigo, this.state.apePat, this.state.apeMat, this.state.nombre)) {
-            if (this.state.dni != '' && this.state.codigo == '' && this.state.apePat == '' && this.state.apeMat == '' && this.state.nombre == '') {
+            if (this.state.dni != '') {
                 this.buscarDni(this.state.dni, e);
 
-            } else if (this.state.dni == '' && this.state.codigo != '' && this.state.apePat == '' && this.state.apeMat == '' && this.state.nombre == '') {
+            } else if (this.state.codigo != '') {
                 this.buscarCodigo(this.state.codigo, e);
 
-            } else if (this.state.dni == '' && this.state.codigo == '' && this.state.apePat != '' || this.state.apeMat != '' || this.state.nombre != '') {
+            } else if (this.state.apePat != '' || this.state.apeMat != '' || this.state.nombre != '') {
+                console.log("CONSULTA POR NOMBRE");
                 this.buscarApellidoNombre(this.state.apePat, this.state.apeMat, this.state.nombre, e);
 
             } else {
@@ -1081,7 +1083,6 @@ class BuscarNuevo extends React.Component {
                         }
                         Array.push(e);
                     }
-
                     this.setState({
                         mostrarResultadoAlumnos: true,
                     });
@@ -1093,6 +1094,7 @@ class BuscarNuevo extends React.Component {
                     opcAlumno: Array,
                     objAlumnos: alumnos,
                     asignarRec: false,
+                    mostrarResultadoAlumnos:true
                 });
             })
             .catch((error) => {
@@ -1109,8 +1111,10 @@ class BuscarNuevo extends React.Component {
             })
             .then((alumnos) => {
                 console.log("---Alumnos---");
-                console.log(alumnos);
                 var Array = [];
+                var alumnitos = [];
+                alumnitos.push(alumnos);
+                console.log(alumnitos);
                 if (alumnos.length > 0) {
                     for (var i = 0; i < alumnos.length; i++) {
                         var e = {
@@ -1132,8 +1136,9 @@ class BuscarNuevo extends React.Component {
                 }
                 this.setState({
                     opcAlumno: Array,
-                    objAlumnos: alumnos,
+                    objAlumnos: alumnitos,
                     asignarRec: false,
+                    mostrarResultadoAlumnos: true
                 });
                 swal("Consulta realizada exitosamente!", "", "success");
             })
@@ -1188,7 +1193,7 @@ class BuscarNuevo extends React.Component {
                     opcAlumno: Array,
                     objAlumnos: alumnos,
                     asignarRec: false,
-                    mostrarResultadoAlumnos: mostrar,
+                    mostrarResultadoAlumnos: true,
                 });
             })
             .catch((error) => {
