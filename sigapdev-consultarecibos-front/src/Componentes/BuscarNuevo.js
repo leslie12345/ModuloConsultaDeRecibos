@@ -1225,7 +1225,7 @@ class BuscarNuevo extends React.Component {
                         }
                         Array.push(e);
                     }
-                    swal("Consulta realizada exitosamente!", "", "success");
+                    swal("Consulta exitosa!", "", "success");
                     this.setState({
                         opcAlumno: Array,
                         objAlumnos: alumnos,
