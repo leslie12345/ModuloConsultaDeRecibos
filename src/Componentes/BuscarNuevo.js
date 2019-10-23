@@ -573,6 +573,7 @@ class BuscarNuevo extends React.Component {
     onClickBuscar = (e) => {
         this.setState({
             asignarRec: true,
+            mostrarResultadoAlumnos: false,
         });
         e.preventDefault();
     }
