@@ -13,6 +13,7 @@ class AR_ReciboResultadoAlumnos extends React.Component {
     }
 
     render() {
+        console.log(this.state.listAlumnos);
         return(
             <div>
                 <table className="table">
@@ -20,6 +21,7 @@ class AR_ReciboResultadoAlumnos extends React.Component {
                     <tbody>
                         {
                             this.props.listAlumnos.map(alumno => {
+                                console.log(alumno)
                                 return(
                                     <tr>
                                         <td className="td1">{alumno.codAlumno}</td>
