@@ -1107,9 +1107,9 @@ class BuscarNuevo extends React.Component {
                         }
                         Array.push(e);
                     }
-                    this.setState({
+                    /*this.setState({
                         mostrarResultadoAlumnos: true,
-                    });
+                    });*/
                     swal("Consulta realizada exitosamente!", "", "success");
                 } else {
                     swal("No hay registro de ese alumno", " ", "info");
@@ -1150,10 +1150,10 @@ class BuscarNuevo extends React.Component {
                         }
                         Array.push(e);
                     }
-
+                    /*
                     this.setState({
                         mostrarResultadoAlumnos: true,
-                    });
+                    });*/
                     swal("Consulta realizada exitosamente!", "", "success");
                 } else {
                     swal("No hay registro de ese alumno", " ", "info");
