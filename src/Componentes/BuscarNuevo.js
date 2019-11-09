@@ -212,7 +212,7 @@ class BuscarNuevo extends React.Component {
                         console.log(this.state.objAlumnos);
 
 
-                        fetch(CONFIG + 'alumnoprograma/buscarc/' + this.state.objRecaudaciones[0].codAlum)
+                        fetch(CONFIG + 'alumnoprograma/leer/cod/' + this.state.objRecaudaciones[0].codAlum)
                             .then((response) => {
                                 return response.json();
                             })
@@ -314,7 +314,7 @@ class BuscarNuevo extends React.Component {
                         console.log(this.state.objAlumnos);
 
 
-                        fetch(CONFIG + 'alumnoprograma/buscarc/' + this.state.objRecaudaciones[0].codAlum)
+                        fetch(CONFIG + 'alumnoprograma/leer/cod/' + this.state.objRecaudaciones[0].codAlum)
                             .then((response) => {
                                 return response.json();
                             })
@@ -1089,7 +1089,7 @@ class BuscarNuevo extends React.Component {
     }
 
     buscarDni = (dni) => {
-        fetch(CONFIG + 'alumnoprograma/buscard/' + dni)
+        fetch(CONFIG + 'alumnoprograma/leer/dni/' + dni)
             .then((response) => {
                 return response.json();
             })
@@ -1130,16 +1130,13 @@ class BuscarNuevo extends React.Component {
 
     buscarCodigo = (codigo) => {
         console.log(codigo, "Codigo");
-        fetch(CONFIG + 'alumnoprograma/buscarc/' + codigo)
+        fetch(CONFIG + 'alumnoprograma/leer/cod/' + codigo)
             .then((response) => {
                 return response.json();
             })
             .then((alumnos) => {
                 console.log("---Alumnos---");
                 var Array = [];
-                var alumnitos = [];
-                alumnitos.push(alumnos);
-                console.log(alumnitos);
                 if (alumnos.length > 0) {
                     for (var i = 0; i < alumnos.length; i++) {
                         var e = {
@@ -1161,7 +1158,7 @@ class BuscarNuevo extends React.Component {
                 }
                 this.setState({
                     opcAlumno: Array,
-                    objAlumnos: alumnitos,
+                    objAlumnos: alumnos,
                     asignarRec: false,
                     mostrarResultadoAlumnos: true
                 });

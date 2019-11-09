@@ -23,12 +23,14 @@ class AR_ReciboResultadoAlumnos extends React.Component {
                             this.props.listAlumnos.map(alumno => {
                                 console.log(alumno)
                                 return(
-                                    <tr>
-                                        <td className="td1">{alumno.codAlumno}</td>
-                                        <td className="td1">{alumno.apePaterno}</td>
-                                        <td className="td1">{alumno.apeMaterno}</td>
-                                        <td className="td1">{alumno.nomAlumno}</td>
-                                    </tr>
+                                    <React.Fragment key={alumno.codAlumno}>
+                                        <tr>
+                                            <td className="td1">{alumno.codAlumno}</td>
+                                            <td className="td1">{alumno.apePaterno}</td>
+                                            <td className="td1">{alumno.apeMaterno}</td>
+                                            <td className="td1">{alumno.nomAlumno}</td>
+                                        </tr>
+                                    </React.Fragment>
                                 )
                             })
                         }
