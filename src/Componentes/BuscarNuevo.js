@@ -1097,6 +1097,7 @@ class BuscarNuevo extends React.Component {
                 console.log("---Alumnos---");
                 console.log(alumnos);
                 var Array = [];
+
                 if (alumnos.length > 0) {
                     for (var i = 0; i < alumnos.length; i++) {
                         var e = {
